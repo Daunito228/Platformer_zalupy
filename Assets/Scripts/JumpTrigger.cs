@@ -7,11 +7,12 @@ public class JumpTrigger : MonoBehaviour
     public Rigidbody2D rb;
     public float jumpForce = 250f;
     private bool isGrounded = false;
-    bool ableToDoubleJump;
+    private bool ableToDoubleJump;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Enemy")
             isGrounded = true;
     }
 
