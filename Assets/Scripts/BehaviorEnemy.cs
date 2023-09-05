@@ -24,7 +24,7 @@ public class BehaviorEnemy : MonoBehaviour
 
     Vector2 DirectionDtrm(float speed)
     {
-        if (speed > 0)
+        if (transform.localScale.x > 0)
         {
             trfrm = -transform.right;
         }
@@ -54,22 +54,43 @@ public class BehaviorEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Ray2D ray = new Ray2D(transform.position, transform.forward);
-            trfrm = DirectionDtrm(speed);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, trfrm);
-            if (hit.transform.name == "Player Cube")
-            {
-                Debug.Log(hit.transform.name);
-                isSeePlayer = true;
-            }
-            
+            isSeePlayer = true;
+            Debug.Log("Видит");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Не видит");
-        isSeePlayer = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            isSeePlayer = false;
+        }
+    }
+
+    private void Update()
+    {
+        Ray2D ray = new Ray2D(transform.position, transform.forward);
+        trfrm = DirectionDtrm(speed);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, trfrm);
+        if (!isSeePlayer) {
+            if (hit.transform.name == "Player Cube")
+            {
+                isSeePlayer = true;
+               // Debug.Log("Видит");
+            }
+        }
+        else
+        {
+            ray = new Ray2D(transform.position, transform.forward);
+            trfrm = DirectionDtrm(speed);
+            hit = Physics2D.Raycast(transform.position, trfrm);
+            if (!(hit.transform.name == "Player Cube"))
+            {
+                isSeePlayer = false;
+                //Debug.Log("не Видит");
+            }
+        }
+
     }
 
     private void FixedUpdate()
@@ -77,15 +98,15 @@ public class BehaviorEnemy : MonoBehaviour
         if (!isSeePlayer)
         {
             calmBehavior();
+            Debug.Log("Не видит");
         }
         else
         {
             //тут надо дописать приследование игрока. Я заебался
-            Debug.Log("Заметил");
+            //Debug.Log("Заметил");
             trfrm = DirectionDtrm(speed);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, trfrm);
-
-
+            Debug.Log("видит");
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, trfrm);
         }
     }
 }
