@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1660658664400564447}
   - component: {fileID: 7473954492090732753}
-  - component: {fileID: -1511997122609561026}
   - component: {fileID: 7421714313820712833}
   - component: {fileID: 1036874761725146879}
   m_Layer: 0
@@ -50,18 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RbBulletPrefab: {fileID: 7421714313820712833}
---- !u!114 &-1511997122609561026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3002072514953634240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f2f14e0d7da4774c8d073f8ab1c037a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7421714313820712833
 Rigidbody2D:
   serializedVersion: 4
@@ -118,7 +105,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.09, y: 0.07}

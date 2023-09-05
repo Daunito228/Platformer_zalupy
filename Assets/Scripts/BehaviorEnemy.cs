@@ -12,6 +12,7 @@ public class BehaviorEnemy : MonoBehaviour
     public static float speedMultiplier = 1;
     bool isSeePlayer = false;
     Vector2 trfrm;
+    public static float enemyHP = 1;
 
     void turnEnemy(Collision2D collision)
     {
@@ -91,6 +92,10 @@ public class BehaviorEnemy : MonoBehaviour
             }
         }
 
+        if(enemyHP <= 0)
+        {
+            Destroy(enemy);
+        }
     }
 
     private void FixedUpdate()

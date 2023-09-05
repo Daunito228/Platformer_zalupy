@@ -10,10 +10,13 @@ public class PlayerShot : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefabRight;
     public GameObject bulletPrefabLeft;
+    public float damageShot = 0.1f;
+    public static float staticDamageShot;
 
     private void Start()
     {
         staticSpeed = speed;
+        staticDamageShot = damageShot;
     }
 
     private void Update()
