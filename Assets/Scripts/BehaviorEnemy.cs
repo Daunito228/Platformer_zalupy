@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BehaviorEnemy : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class BehaviorEnemy : MonoBehaviour
     bool isSeePlayer = false;
     Vector2 trfrm;
     public static float enemyHP = 1;
+    public Image enemyHpBarFilling;
+    public static Image staticEnemyHpBarFilling;
+
+    private void Start()
+    {
+        staticEnemyHpBarFilling = enemyHpBarFilling;
+    }
 
     void turnEnemy(Collision2D collision)
     {
