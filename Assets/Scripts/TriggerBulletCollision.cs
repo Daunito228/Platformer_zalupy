@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TriggerBulletCollision : MonoBehaviour
 {
     public Image enemyHpBarFilling;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Floor")
@@ -16,7 +17,9 @@ public class TriggerBulletCollision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-            enemyHpBarFilling.fillAmount = BehaviorEnemy.enemyHP - PlayerShot.staticDamageShot;
-        }
+            BehaviorEnemy.enemyHP -= PlayerShot.staticDamageShot;
+            BehaviorEnemy.staticEnemyHpBarFilling.fillAmount = BehaviorEnemy.enemyHP;
+            Debug.Log(BehaviorEnemy.enemyHP - PlayerShot.staticDamageShot);
+        }   
     }
 }
