@@ -9,6 +9,7 @@ public class BehaviorEnemy : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject enemy;
     public float speed = 3f;
+    public bool startMoveLeft = true;
     private float rotation = 1;
     public static float speedMultiplier = 1;
     bool isSeePlayer = false;
@@ -20,6 +21,8 @@ public class BehaviorEnemy : MonoBehaviour
     private void Start()
     {
         staticEnemyHpBarFilling = enemyHpBarFilling;
+        if (startMoveLeft == false)
+            speed *= -1;
     }
 
     void turnEnemy(Collision2D collision)
@@ -102,8 +105,10 @@ public class BehaviorEnemy : MonoBehaviour
 
         if(enemyHP <= 0)
         {
-            Destroy(enemy);
+            enemyHP = 1;
+            enemy.transform.position = new Vector2(40, 3);
         }
+        enemyHpBarFilling.fillAmount = enemyHP;
     }
 
     private void FixedUpdate()
