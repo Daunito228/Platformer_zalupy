@@ -17,9 +17,11 @@ public class BehaviorEnemy : MonoBehaviour
     public static float enemyHP = 1;
     public Image enemyHpBarFilling;
     public static Image staticEnemyHpBarFilling;
+    Transform playerPos;
 
     private void Start()
     {
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); //ахуительно полезная штука, надо запомнить
         staticEnemyHpBarFilling = enemyHpBarFilling;
         if (startMoveLeft == false)
             speed *= -1;
@@ -88,7 +90,6 @@ public class BehaviorEnemy : MonoBehaviour
             if (hit.transform.name == "Player Cube")
             {
                 isSeePlayer = true;
-               // Debug.Log("Видит");
             }
         }
         else
@@ -99,7 +100,6 @@ public class BehaviorEnemy : MonoBehaviour
             if (!(hit.transform.name == "Player Cube"))
             {
                 isSeePlayer = false;
-                //Debug.Log("не Видит");
             }
         }
 
@@ -120,11 +120,9 @@ public class BehaviorEnemy : MonoBehaviour
         }
         else
         {
-            //тут надо дописать приследование игрока. Я заебался
-            //Debug.Log("Заметил");
             trfrm = DirectionDtrm(speed);
             Debug.Log("видит");
-            //RaycastHit2D hit = Physics2D.Raycast(transform.position, trfrm);
+            //transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed*2*Time.deltaTime);
         }
     }
 }

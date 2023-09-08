@@ -29,9 +29,4 @@ public class TriggerBulletCollision : MonoBehaviour
         }
         Destroy(particle, 0.1f);
     }
-    //public void Wait()
-    //{
-    //    Destroy(particle);
-    //    Debug.Log("Партекл удален");
-    //}
 }
