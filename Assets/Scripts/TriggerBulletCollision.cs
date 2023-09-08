@@ -17,24 +17,21 @@ public class TriggerBulletCollision : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             particle = Instantiate(PlayerShot.staticExplodeBulletPrefab, explodePos, Quaternion.identity);
-            Invoke("Wait", 1);
             Destroy(bullet);
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
             particle = Instantiate(PlayerShot.staticExplodeBulletPrefab, explodePos, Quaternion.identity);
-            Invoke("Wait", 1);
             Destroy(bullet);
-
             BehaviorEnemy.enemyHP -= PlayerShot.staticDamageShot;
             BehaviorEnemy.staticEnemyHpBarFilling.fillAmount = BehaviorEnemy.enemyHP;
-        }   
-        
+        }
+        Destroy(particle, 0.1f);
     }
-    public void Wait()
-    {
-        Destroy(particle);
-        Debug.Log("Партекл удален");
-    }
+    //public void Wait()
+    //{
+    //    Destroy(particle);
+    //    Debug.Log("Партекл удален");
+    //}
 }
