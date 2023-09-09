@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -8751358132244461207}
   - component: {fileID: 7421714313820712833}
   - component: {fileID: 1036874761725146879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletRight
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,8 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3002072514953634240}
-  bulletPos: {fileID: 1660658664400564447}
-  isRight: 1
 --- !u!50 &7421714313820712833
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7635069478944161879}
   - component: {fileID: 458227900516919191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2698131391980304178}
   - component: {fileID: 8863552658750686553}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

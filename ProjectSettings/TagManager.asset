@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - Enemy
+  - Bullet
+  - Frame
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - Gun
   - Water
   - UI
-  - 
-  - 
+  - Frame
+  - Bullet
   - 
   - 
   - 

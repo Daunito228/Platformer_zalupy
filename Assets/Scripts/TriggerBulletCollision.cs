@@ -27,6 +27,16 @@ public class TriggerBulletCollision : MonoBehaviour
             BehaviorEnemy.enemyHP -= PlayerShot.staticDamageShot;
             BehaviorEnemy.staticEnemyHpBarFilling.fillAmount = BehaviorEnemy.enemyHP;
         }
+
         Destroy(particle, 0.1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Frame")
+        {
+            Destroy(bullet);
+            Debug.Log("Пуля удалена");
+        }
     }
 }
